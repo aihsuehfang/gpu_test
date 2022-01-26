@@ -7,6 +7,14 @@
 
 void sobol_f_(double *, int *, int *, double *, int *, int *,  int *,  int *, int *, int *, int *);
 
+void ytassign(double *y, double *dt_y, int m, int n, int mi,int idx, double *y_mat, double *dt_mat){
+     int j;
+     for(j=0;j<mi;j++){
+        y[j]=y_mat[idx*m+j];
+        dt_y[j]=dt_mat[idx*m+j];
+     }
+     return;
+}
 
 
 double *baker_trans(int n, double *x){
@@ -17,8 +25,6 @@ double *baker_trans(int n, double *x){
     }
     return(y);
 }
-
-
 
 void qmc_int0(int idx, int iseed, int n1, int n2, int m, int n_p0, double q, double *y, double *dt,
              double *pars, double *ans, char *method){
@@ -140,5 +146,3 @@ void loglik_q(double *pars1, int *n_p0, int *n0, int *m0, double *q0, double *Y1
     printf("[RES] fval=%20.10lf\n",fval0[0]);
     return;
 }
-
-

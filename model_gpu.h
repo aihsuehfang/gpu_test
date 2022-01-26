@@ -5,7 +5,7 @@
 #include<stdbool.h>
 #include<time.h>
 #include<omp.h>
-#include "./inverseGaussian.h"
+#include "./functions.h"
 
 
 #define MIN(x,y) (x > y ? y : x)
